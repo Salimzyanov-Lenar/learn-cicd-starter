@@ -20,6 +20,3 @@ jobs:
 
       - name: Echo Go Version
         run: go version
-      
-      - name: Echo artem loh
-        run: echo artem loh
