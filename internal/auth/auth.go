@@ -18,6 +18,8 @@ func GetAPIKey(headers http.Header) (string, error) {
 	if len(splitAuth) < 2 || splitAuth[0] != "ApiKey" {
 		return "", errors.New("malformed authorization header")
 	}
+	fail := "failing"
+	return fail, nil
 
-	return splitAuth[1], nil
+	// return splitAuth[1], nil
 }
