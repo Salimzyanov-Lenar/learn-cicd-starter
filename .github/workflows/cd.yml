@@ -22,7 +22,7 @@ jobs:
         run: ./scripts/buildprod.sh
 
       - name: Copy binary to server
-        uses: appleboy/scp-action@latest
+        uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
@@ -31,7 +31,7 @@ jobs:
           target: "/home/${{ secrets.SERVER_USER }}/app"
       
       - name: Restart app on server
-        uses: appleboy/ssh-action@latest
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
