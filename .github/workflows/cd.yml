@@ -37,8 +37,10 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd ~/app
-            chmod +x app
+            cd /home/${{ secrets.SERVER_USER }}/app
+            chmod +x /app
             pkill app || true
-            export $(grep -v '^#' .env | xargs)
+            set -a
+            source .env
+            set +a
             nohup ./app > app.log 2>&1 &
