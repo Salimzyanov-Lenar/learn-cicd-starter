@@ -33,10 +33,11 @@ func main() {
 	}
 
 	portEnv := os.Getenv("PORT")
-	port, err := strconv.Atoi(portEnv)
+	portInt, err := strconv.Atoi(portEnv)
 	if err != nil {
 		log.Fatal("Invalid port")
 	}
+	port := strconv.Itoa(portInt)
 
 	apiCfg := apiConfig{}
 
