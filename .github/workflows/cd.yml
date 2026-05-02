@@ -38,7 +38,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd /home/${{ secrets.SERVER_USER }}/app
-            chmod +x /app
+            chmod +x app
             pkill app || true
             set -a
             source .env
