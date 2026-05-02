@@ -37,6 +37,8 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            chmod +x ~/app/app
+            cd ~/app
+            chmod +x app
             pkill app || true
-            nohup ~/app/app > app.log 2>&1 &
+            export $(grep -v '^#' .env | xargs)
+            nohup ./app > app.log 2>&1 &
